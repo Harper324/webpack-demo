@@ -26,8 +26,22 @@ module.exports = {
           },
           { loader: "sass-loader" }
         ]
-      }
+      },
+      {loader: 'file-loader', test: /\.(ttf|eot|svg)$/},
     ]
+  },
+  resolve: {
+    alias: {
+      config$: './configs/app-config.js',
+      react: './vendor/react-master',
+    },
+    extensions: ['', 'js', 'jsx'],
+    modules: [
+      'node_modules',
+      'bower_components',
+      'shared',
+      '/shared/vendor/modules',
+    ],
   },
   plugins: [new hwp({ template: path.join(__dirname, "/src/index.html") })],
   mode: "development"
